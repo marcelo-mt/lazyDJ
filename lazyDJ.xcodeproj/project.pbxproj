@@ -26,6 +26,7 @@
 		1A14C5F41823CC6C00CAB728 /* Macarena.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A14C5F31823CC6C00CAB728 /* Macarena.mp3 */; };
 		1A14C5F61823CCB000CAB728 /* Fox.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A14C5F51823CCB000CAB728 /* Fox.mp3 */; };
 		1A14C5F918244CF300CAB728 /* lazyDJDisc.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A14C5F818244CF300CAB728 /* lazyDJDisc.m */; };
+		1A3D1B0E182821EE00CF8A3A /* lazyDJIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D1B0D182821EE00CF8A3A /* lazyDJIntroViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		1A14C5F51823CCB000CAB728 /* Fox.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Fox.mp3; sourceTree = "<group>"; };
 		1A14C5F718244CF300CAB728 /* lazyDJDisc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazyDJDisc.h; sourceTree = "<group>"; };
 		1A14C5F818244CF300CAB728 /* lazyDJDisc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lazyDJDisc.m; sourceTree = "<group>"; };
+		1A3D1B0C182821EE00CF8A3A /* lazyDJIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazyDJIntroViewController.h; sourceTree = "<group>"; };
+		1A3D1B0D182821EE00CF8A3A /* lazyDJIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lazyDJIntroViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +142,8 @@
 				1A14C5BE1823AD7600CAB728 /* Supporting Files */,
 				1A14C5F718244CF300CAB728 /* lazyDJDisc.h */,
 				1A14C5F818244CF300CAB728 /* lazyDJDisc.m */,
+				1A3D1B0C182821EE00CF8A3A /* lazyDJIntroViewController.h */,
+				1A3D1B0D182821EE00CF8A3A /* lazyDJIntroViewController.m */,
 			);
 			path = lazyDJ;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 			files = (
 				1A14C5C81823AD7600CAB728 /* lazyDJAppDelegate.m in Sources */,
 				1A14C5F11823B39E00CAB728 /* MyAvAudioPlayer.m in Sources */,
+				1A3D1B0E182821EE00CF8A3A /* lazyDJIntroViewController.m in Sources */,
 				1A14C5CE1823AD7600CAB728 /* lazyDJViewController.m in Sources */,
 				1A14C5C41823AD7600CAB728 /* main.m in Sources */,
 				1A14C5F918244CF300CAB728 /* lazyDJDisc.m in Sources */,
