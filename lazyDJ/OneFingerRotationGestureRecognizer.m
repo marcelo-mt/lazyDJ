@@ -113,8 +113,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA,
     // Make sure the new point is within the area.
     CGFloat distance = distanceBetweenPoints(midPoint, nowPoint);
     if (((0.80 * innerRadius) <= distance) &&
-        (distance <= (1.0 * outerRadius)))
-    {
+        (distance <= (1.0 * outerRadius))) {
         // Calculate rotation angle between two points.
         CGFloat angle = angleBetweenLinesInDegrees(midPoint, prevPoint, midPoint, nowPoint);
         
@@ -123,18 +122,16 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA,
             NSLog(@"Counterclock wise movement.");
             //self.state = UIGestureRecognizerStateFailed;
             // Doesn't end gesture.
-            self.state = UIGestureRecognizerStatePossible;
-            return;
+        //    self.state = UIGestureRecognizerStatePossible;
+        //    return;
             // Later set velocity to a negative value.
         }
         
         // Fix value, if the 12 o'clock position is between prevPoint and nowPoint.
-        if (angle > 180)
-        {
+        if (angle > 180) {
             angle -= 360;
         }
-        else if (angle < -180)
-        {
+        else if (angle < -180) {
             angle += 360;
         }
         
@@ -150,15 +147,14 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA,
         }
         
         // Call delegate.
-        if ([target respondsToSelector: @selector(rotation: speed: andView:)])
-        {
+        if ([target respondsToSelector: @selector(rotation: speed: andView:)]) {
             [target rotation:angle speed:speed andView:self.view];
         }
     }
-    else
-    {
+    else {
         // finger moved outside the area
         self.state = UIGestureRecognizerStateFailed;
+        [self rotationEnded];
     }
 }
 
@@ -167,24 +163,15 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA,
     [super touchesEnded:touches withEvent:event];
 
     NSLog(@"Touches Ended");
-    if (self.state == UIGestureRecognizerStatePossible)
-    {
+    if (self.state == UIGestureRecognizerStatePossible) {
         self.state = UIGestureRecognizerStateRecognized;
-
-        if ([target respondsToSelector: @selector(finalAngle: speed: andView:)])
-        {
-            [target finalAngle:cumulatedAngle
-                         speed:INITIAL_SPEED
-                       andView:self.view];
-        }
+        
     }
-    else
-    {
+    else {
         self.state = UIGestureRecognizerStateFailed;
     }
-
-    angularDistance = 0;
-    cumulatedAngle = 0;
+    
+    [self rotationEnded];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
@@ -192,6 +179,22 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA,
     [super touchesCancelled:touches withEvent:event];
 
     self.state = UIGestureRecognizerStateFailed;
+    
+    
+}
+
+- (void)rotationEnded
+{
+    // Signals that rotation movement has ended!
+    
+    if ([target respondsToSelector: @selector(finalAngle: speed: andView:)])
+    {
+        [target finalAngle:cumulatedAngle
+                     speed:INITIAL_SPEED
+                   andView:self.view];
+    }
+    
+    angularDistance = 0;
     cumulatedAngle = 0;
 }
 
