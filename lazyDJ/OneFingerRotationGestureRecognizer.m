@@ -122,8 +122,9 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA,
             NSLog(@"Counterclock wise movement.");
             //self.state = UIGestureRecognizerStateFailed;
             // Doesn't end gesture.
-        //    self.state = UIGestureRecognizerStatePossible;
-        //    return;
+            self.state = UIGestureRecognizerStatePossible;
+            //[self rotationEnded];
+            return;
             // Later set velocity to a negative value.
         }
         

@@ -41,6 +41,10 @@
 @property (strong, nonatomic) lazyDJDisc *leftDisc;
 @property (strong, nonatomic) lazyDJDisc *rightDisc;
 
+@property (weak, nonatomic) IBOutlet UIView *introView;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *leftSwipeGestureRecognizer;
+
 @end
 
 // TODO(mingatos): decouple stuff. Elaborate on lazyDJDisc class.
@@ -52,8 +56,8 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // lazyDisc init.
-        self.leftDisc = [[lazyDJDisc alloc] initWithMP3FileName:@"Macarena"];
-        self.rightDisc = [[lazyDJDisc alloc] initWithMP3FileName:@"Fox"];
+        self.leftDisc = [[lazyDJDisc alloc] initWithMP3FileName:@"Audiobeast"];
+        self.rightDisc = [[lazyDJDisc alloc] initWithMP3FileName:@"Younevercantell"];
         
         // Little fix: Fox audio a little louder than Macarena audio.
         // Capping right audio to 70% max volume.
@@ -341,6 +345,44 @@
     }
     
     [audioToFade setVolumeToValue:valueToFade];
+}
+
+
+# pragma mark - Intro
+
+- (IBAction)leftIntroDismiss:(id)sender
+{
+    CGRect introViewFrame = self.introView.frame;
+    introViewFrame.origin.x = -introViewFrame.size.width;
+    
+    NSLog(@"Swipe");
+    [self dismissIntroAnimation:introViewFrame];
+}
+
+- (IBAction)rightIntroDismiss:(id)sender
+{
+    CGRect introViewFrame = self.introView.frame;
+    introViewFrame.origin.x = 2 * introViewFrame.size.width;
+    
+    NSLog(@"Swipe.");
+    [self dismissIntroAnimation:introViewFrame];
+}
+
+- (void)dismissIntroAnimation:(CGRect)toFrame
+{
+    //CGRect napkinBottomFrame = self.napkinBottom.frame;
+    //napkinBottomFrame.origin.y = self.view.bounds.size.height;
+    
+    [UIView animateWithDuration:0.5
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.introView.frame = toFrame;
+                         //self.napkinBottom.frame = napkinBottomFrame;
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                     }];
 }
 
 @end
