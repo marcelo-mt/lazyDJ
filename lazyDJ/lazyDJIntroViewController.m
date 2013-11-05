@@ -10,6 +10,9 @@
 
 @interface lazyDJIntroViewController ()
 
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *leftSwiperGestureRecognizer;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
+
 @end
 
 @implementation lazyDJIntroViewController
@@ -33,6 +36,20 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+# pragma mark - Swipes
+
+- (IBAction)swipeLeft:(id)sender
+{
+    NSLog(@"Swipe left.");
+    [self performSegueWithIdentifier:@"dismissIntroLeft" sender:self];
+    
+}
+- (IBAction)swipeRight:(id)sender
+{
+    NSLog(@"Swipe right.");
+    [self performSegueWithIdentifier:@"dismissIntroRight" sender:self];
 }
 
 @end
