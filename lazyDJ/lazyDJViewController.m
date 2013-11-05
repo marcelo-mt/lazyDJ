@@ -56,8 +56,8 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // lazyDisc init.
-        self.leftDisc = [[lazyDJDisc alloc] initWithMP3FileName:@"Macarena"];
-        self.rightDisc = [[lazyDJDisc alloc] initWithMP3FileName:@"Fox"];
+        self.leftDisc = [[lazyDJDisc alloc] initWithMP3FileName:@"Audiobeast"];
+        self.rightDisc = [[lazyDJDisc alloc] initWithMP3FileName:@"Younevercantell"];
         
         // Little fix: Fox audio a little louder than Macarena audio.
         // Capping right audio to 70% max volume.

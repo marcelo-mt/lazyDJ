@@ -27,6 +27,8 @@
 		1A14C5F61823CCB000CAB728 /* Fox.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A14C5F51823CCB000CAB728 /* Fox.mp3 */; };
 		1A14C5F918244CF300CAB728 /* lazyDJDisc.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A14C5F818244CF300CAB728 /* lazyDJDisc.m */; };
 		1A3D1B0E182821EE00CF8A3A /* lazyDJIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3D1B0D182821EE00CF8A3A /* lazyDJIntroViewController.m */; };
+		1A3D1B1118293EA200CF8A3A /* Audiobeast.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A3D1B0F18293EA200CF8A3A /* Audiobeast.mp3 */; };
+		1A3D1B1218293EA200CF8A3A /* Younevercantell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A3D1B1018293EA200CF8A3A /* Younevercantell.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		1A14C5F818244CF300CAB728 /* lazyDJDisc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lazyDJDisc.m; sourceTree = "<group>"; };
 		1A3D1B0C182821EE00CF8A3A /* lazyDJIntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lazyDJIntroViewController.h; sourceTree = "<group>"; };
 		1A3D1B0D182821EE00CF8A3A /* lazyDJIntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lazyDJIntroViewController.m; sourceTree = "<group>"; };
+		1A3D1B0F18293EA200CF8A3A /* Audiobeast.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Audiobeast.mp3; sourceTree = "<group>"; };
+		1A3D1B1018293EA200CF8A3A /* Younevercantell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Younevercantell.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,8 @@
 		1A14C5F21823B7FD00CAB728 /* Music Files */ = {
 			isa = PBXGroup;
 			children = (
+				1A3D1B0F18293EA200CF8A3A /* Audiobeast.mp3 */,
+				1A3D1B1018293EA200CF8A3A /* Younevercantell.mp3 */,
 				1A14C5F51823CCB000CAB728 /* Fox.mp3 */,
 				1A14C5F31823CC6C00CAB728 /* Macarena.mp3 */,
 			);
@@ -266,8 +272,10 @@
 				1A14C5D01823AD7600CAB728 /* Images.xcassets in Resources */,
 				1A14C5C21823AD7600CAB728 /* InfoPlist.strings in Resources */,
 				1A14C5F41823CC6C00CAB728 /* Macarena.mp3 in Resources */,
+				1A3D1B1118293EA200CF8A3A /* Audiobeast.mp3 in Resources */,
 				1A14C5CB1823AD7600CAB728 /* Main.storyboard in Resources */,
 				1A14C5F61823CCB000CAB728 /* Fox.mp3 in Resources */,
+				1A3D1B1218293EA200CF8A3A /* Younevercantell.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
