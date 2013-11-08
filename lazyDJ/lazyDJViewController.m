@@ -42,6 +42,8 @@
 @property (strong, nonatomic) lazyDJDisc *rightDisc;
 
 @property (weak, nonatomic) IBOutlet UIView *introView;
+@property (weak, nonatomic) IBOutlet UILabel *lazyDJLabel;
+
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *rightSwipeGestureRecognizer;
 @property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *leftSwipeGestureRecognizer;
 
@@ -373,7 +375,7 @@
     //CGRect napkinBottomFrame = self.napkinBottom.frame;
     //napkinBottomFrame.origin.y = self.view.bounds.size.height;
     
-    [UIView animateWithDuration:0.5
+    [UIView animateWithDuration:1.5
                           delay:0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
@@ -383,6 +385,18 @@
                      completion:^(BOOL finished){
                          NSLog(@"Done!");
                      }];
+    CGRect toLabelFrame = self.lazyDJLabel.frame;
+    toLabelFrame.origin.x = toFrame.origin.x;
+    [UIView animateWithDuration:0.9
+                          delay:0.6
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.lazyDJLabel.frame = toLabelFrame;
+                     }
+                     completion:^(BOOL bla){
+                         NSLog(@"Bla");
+                     }];
+    
 }
 
 @end
