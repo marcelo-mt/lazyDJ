@@ -316,12 +316,15 @@
     
     // If audio was playing before rotating touched began
     // send play signal.
+    [disc.audio setRateToValue:1.0];
     if (disc.audio.wasPlaying) {
         // Reset normal rate.
-        [disc.audio setRateToValue:1.0];
         [disc.audio play];
         [disc startSpinning];
         disc.audio.wasPlaying = NO;
+    } else {
+        [disc.audio pause];
+        [disc stopSpinning];
     }
 }
 
@@ -375,7 +378,7 @@
     //CGRect napkinBottomFrame = self.napkinBottom.frame;
     //napkinBottomFrame.origin.y = self.view.bounds.size.height;
     
-    [UIView animateWithDuration:1.5
+    [UIView animateWithDuration:1.0
                           delay:0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
@@ -387,8 +390,8 @@
                      }];
     CGRect toLabelFrame = self.lazyDJLabel.frame;
     toLabelFrame.origin.x = toFrame.origin.x;
-    [UIView animateWithDuration:0.9
-                          delay:0.6
+    [UIView animateWithDuration:0.6
+                          delay:0.3
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          self.lazyDJLabel.frame = toLabelFrame;

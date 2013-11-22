@@ -11,6 +11,6 @@
 
 #import "lazyDJDisc.h"
 
-@interface lazyDJViewController : UIViewController <UIGestureRecognizerDelegate, OneFingerRotationGestureRecognizerDelegate>
+@interface lazyDJViewController : UIViewController <OneFingerRotationGestureRecognizerDelegate>
 
 @end

@@ -93,6 +93,8 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA,
         return;
     }
     
+    self.state = UIGestureRecognizerStateBegan;
+    
     // Call delegate.
     if ([target respondsToSelector: @selector(firstTouchView:)])
     {
@@ -114,19 +116,11 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA,
     CGFloat distance = distanceBetweenPoints(midPoint, nowPoint);
     if (((0.80 * innerRadius) <= distance) &&
         (distance <= (1.0 * outerRadius))) {
+        
+        self.state = UIGestureRecognizerStateChanged;
+        
         // Calculate rotation angle between two points.
         CGFloat angle = angleBetweenLinesInDegrees(midPoint, prevPoint, midPoint, nowPoint);
-        
-        // Check if movement was clockwise.
-        if (angle < 0) {
-            NSLog(@"Counterclock wise movement.");
-            //self.state = UIGestureRecognizerStateFailed;
-            // Doesn't end gesture.
-            self.state = UIGestureRecognizerStatePossible;
-            //[self rotationEnded];
-            return;
-            // Later set velocity to a negative value.
-        }
         
         // Fix value, if the 12 o'clock position is between prevPoint and nowPoint.
         if (angle > 180) {
@@ -134,6 +128,17 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA,
         }
         else if (angle < -180) {
             angle += 360;
+        }
+        
+        // Check if movement was clockwise.
+        if (angle < 0) {
+            NSLog(@"Counterclock wise movement.");
+            //self.state = UIGestureRecognizerStateFailed;
+            // Doesn't end gesture.
+            //self.state = UIGestureRecognizerStatePossible;
+            [self rotationEnded];
+            return;
+            // Later set velocity to a negative value.
         }
         
         // Sum up single steps.
@@ -165,7 +170,7 @@ CGFloat angleBetweenLinesInDegrees(CGPoint beginLineA,
 
     NSLog(@"Touches Ended");
     if (self.state == UIGestureRecognizerStatePossible) {
-        self.state = UIGestureRecognizerStateRecognized;
+        self.state = UIGestureRecognizerStateEnded;
         
     }
     else {
